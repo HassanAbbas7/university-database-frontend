@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UniversityCard from "./dataCard";
 import CountryAutocomplete from "./countryAutoComplete";
+import { BASE_URL } from "../constants/constants";
 
 
 const EntriesList = () => {
@@ -18,7 +19,7 @@ const EntriesList = () => {
     setLoading(true);
     try {
       // Construct the API URL with the selected filters
-      let url = `http://127.0.0.1:5000/api/entries?page=${currentPage}&page_size=20`;
+      let url = `${BASE_URL}/api/entries?page=${currentPage}&page_size=20`;
       if (continentFilter) {
         url += `&continent=${continentFilter}`;
       }
@@ -49,7 +50,7 @@ const EntriesList = () => {
   };
 
   useEffect(() => {
-    let url = `http://127.0.0.1:5000/api/get_countries?continent=${continentFilter}`;
+    let url = `${BASE_URL}/api/get_countries?continent=${continentFilter}`;
     fetch(url)
       .then(response => response.json())
       .then(data => {
@@ -122,8 +123,6 @@ const EntriesList = () => {
             <option value="Middle East">Middle East</option>
           </select>
         </div>
-
-        {/* City Filter */}
 
         <CountryAutocomplete allCities={countries.map(city => city[0])} setCityFilter={setCityFilter} cityFilter={cityFilter}></CountryAutocomplete>
         {/* <div className="col-md-4">

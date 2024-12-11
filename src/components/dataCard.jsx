@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import DegreeCard from "./degreeCard";
+import { BASE_URL } from "../constants/constants";
 
 const UniversityCard = ({ name, link, city, country, summary, id }) => {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +15,7 @@ const UniversityCard = ({ name, link, city, country, summary, id }) => {
     setShowModal(true);
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:5000/api/${dg}_degrees?oi=${id}`);
+      const response = await fetch(`${BASE_URL}/api/${dg}_degrees?oi=${id}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch data: ${response.statusText}`);
       }
