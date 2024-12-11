@@ -43,7 +43,7 @@ const EntriesList = () => {
       }
       setEntries((prev) => [...prev, ...data]);
     } catch (err) {
-      
+
       setError(err.message);
     } finally {
       setLoading(false);
@@ -52,6 +52,7 @@ const EntriesList = () => {
 
   useEffect(() => {
     let url = `${BASE_URL}/api/get_countries?continent=${continentFilter}`;
+    console.log(url);
     fetch(url)
       .then(response => response.json())
       .then(data => {

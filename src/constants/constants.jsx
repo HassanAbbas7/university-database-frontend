@@ -2,4 +2,4 @@
 
 
 
-export const BASE_URL = "hhttps://hassanabbasnaqvi.pythonanywhere.com";
+export const BASE_URL = "https://hassanabbasnaqvi.pythonanywhere.com";
