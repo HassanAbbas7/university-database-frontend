@@ -16,7 +16,7 @@ function App() {
   return (
     <>
     <Routes>
-          <Route path="/" exact element={idk()} />
+          <Route path="/" exact element={<EntriesList/>} />
           <Route path="/database" exact element={<EntriesList/>} />
         </Routes>
     </>
