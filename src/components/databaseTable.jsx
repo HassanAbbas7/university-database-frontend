@@ -43,6 +43,7 @@ const EntriesList = () => {
       }
       setEntries((prev) => [...prev, ...data]);
     } catch (err) {
+      
       setError(err.message);
     } finally {
       setLoading(false);
