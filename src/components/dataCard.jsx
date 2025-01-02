@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import DegreeCard from "./degreeCard";
 import { BASE_URL } from "../constants/constants";
 
-const UniversityCard = ({ name, link, city, country, summary, id }) => {
+const UniversityCard = ({ name, link, ranking, city, country, summary, id, acedemicStaff, femaleStudents, internationalStudents, mastersScholorships, phdScholorships, bachelorScholorships, students,}) => {
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [targetDegree, setTargetDegree] = useState(null);
 
+  useEffect(() => {
+    console.log(ranking);
+  }, [])
   const handleModalOpen = async (dg) => {
     setShowModal(true);
     setLoading(true);
@@ -41,7 +44,6 @@ const UniversityCard = ({ name, link, city, country, summary, id }) => {
         <h5 className="card-title">
           <button
             className="btn btn-link text-decoration-none text-primary p-0"
-            onClick={handleModalOpen}
           >
             {name}
           </button>
@@ -51,8 +53,42 @@ const UniversityCard = ({ name, link, city, country, summary, id }) => {
         <p className="card-text mb-1">
           <strong>City:</strong> {city}
         </p>
+        <p className="card-text mb-1">
+          <strong>Global Ranking:</strong> {ranking}
+        </p>
+        <p className="card-text mb-1">
+          <iframe src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAJHqFKyN99n3KXBTsvsn0prNm_H2E94Do&q=${name}%20${country}&zoom=10`} frameborder="0"></iframe>
+        </p>
         <p className="card-text mb-3">
           <strong>Country:</strong> {country}
+        </p>
+
+        <p className="card-text mb-3">
+          <strong>Academic Staff:</strong> {acedemicStaff}
+        </p>
+
+        <p className="card-text mb-3">
+          <strong>Female Students:</strong> {femaleStudents}
+        </p>
+
+        <p className="card-text mb-3">
+          <strong>International Students:</strong> {internationalStudents}
+        </p>
+
+        <p className="card-text mb-3">
+          <strong>Students:</strong> {students}
+        </p>
+
+        <p className="card-text mb-3">
+          <strong>Masters Scholorships:</strong> {mastersScholorships}
+        </p>
+
+        <p className="card-text mb-3">
+          <strong>PhD Scholorships:</strong> {phdScholorships}
+        </p>
+
+        <p className="card-text mb-3">
+          <strong>Bachelor Scholorships:</strong> {bachelorScholorships}
         </p>
 
         {/* Summary */}

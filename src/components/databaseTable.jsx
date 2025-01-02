@@ -51,6 +51,10 @@ const EntriesList = () => {
   };
 
   useEffect(() => {
+    console.log(entries);
+  }, [entries])
+
+  useEffect(() => {
     let url = `${BASE_URL}/api/get_countries?continent=${continentFilter}`;
     console.log(url);
     fetch(url)
@@ -149,9 +153,18 @@ const EntriesList = () => {
                   name={entry[1]}
                   link={entry[2]}
                   city={entry[3]}
-                  country={entry[5]}
-                  summary={entry[4]}
-                  id={entry[7]}
+                  summary={entry[5]}
+                  country={entry[6]}
+                  acedemicStaff={entry[7]}
+                  femaleStudents={entry[8]}
+                  internationalStudents={entry[9]}
+                  mastersScholorships={entry[10]}
+                  phdScholorships={entry[11]}
+                  bachelorScholorships={entry[12]}
+                  students={entry[13]}
+                  ranking={entry[14]}
+                  id={entry[15]}
+
                 />
               </div>
             </div>
