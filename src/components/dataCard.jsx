@@ -62,14 +62,7 @@ const UniversityCard = ({ name, link, ranking, city, country, summary, id, acede
         <p className="card-text mb-3">
           <strong>Country:</strong> {country}
         </p>
-
-        <p className="card-text mb-3">
-          <strong>Academic Staff:</strong> {acedemicStaff}
-        </p>
-
-        <p className="card-text mb-3">
-          <strong>Female Students:</strong> {femaleStudents}
-        </p>
+        
 
         <p className="card-text mb-3">
           <strong>International Students:</strong> {internationalStudents}
